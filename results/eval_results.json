@@ -1,0 +1,127 @@
+[
+  {
+    "query": "What are metformin side effects?",
+    "custom": {
+      "time_sec": 2.391,
+      "score": 1,
+      "score_reason": "The retrieved passages do not mention metformin side effects and are unrelated to the query.",
+      "answer": "The provided context does not contain information about the side effects of metformin.",
+      "retrieved_chunks": [
+        "benefit should be made irrespective of background use of metformin or A1C.\n\u2020 ASCVD: Defined differently across CVOTs but all included individuals with established CVD (e.g., MI, stroke, and arterial revascularization procedure) and variably included conditions such as transient ischemic attack, unstable angina, amputation and symptomatic or asymptomatic coronary artery disease. Indicators of high risk: While definitions vary, most comprise \u226555 years of age \nwith two or more additional risk facto",
+        "\n+Achievement and maintenance of glycemic goals\nMetformin or other agent (including combination therapy) that \nprovides adequate EFFICACY to achieve and maintain glycemic \ntreatment goals\nPrioritize avoidance of hypoglycemia in high-risk individuals\nEfficacy for glucose lowering\nVery high: Dulaglutide (high dose), semaglutide, \ntirzepatide, insulin. \nCombination oral, combination injectable (GLP-1 RA and insulin)\nHigh: GLP-1 RA (not listed above), metformin, pioglitazone, \nSGLT2i, sulfonylurea\nI",
+        " HF Progression of CKD Dosing / Use considerations*\nMetformin\n(oral)\nHigh No Neutral (potential \nfor modest loss)\nPotential benefit Neutral Neutral Contraindicated with \neGFR <30 mL/min/1.73 m2\nNeutral\nSGLT2 inhibitors\n(oral)\nIntermediate to \nhigh\nNo Loss\n(intermediate)\nBenefit: canagliflozin,\nempagliflozin\nBenefit: canagliflozin,\ndapagliflozin, \nempagliflozin, \nertugliflozin\nBenefit: canagliflozin,\ndapagliflozin, \nempagliflozin\n\u2022 See labels of individual agents for dosage \nconsiderations for ki"
+      ]
+    },
+    "langchain": {
+      "time_sec": 1.188,
+      "score": 1,
+      "score_reason": "The retrieved passages do not mention metformin side effects and focus instead on efficacy and treatment goals.",
+      "answer": "The provided context does not contain information about the side effects of metformin.",
+      "retrieved_chunks": [
+        "\u2022 Discontinue metformin\nFor new-onset diabetes in youth with overweight or obesity with clinical suspicion of\ntype 2 diabetes, initiate lifestyle management and diabetes education\nPancreatic autoantibodies\nNEGATIVE POSITIVE",
+        "+Achievement and maintenance of glycemic goals\nMetformin or other agent (including combination therapy) that \nprovides adequate EFFICACY to achieve and maintain glycemic \ntreatment goals\nPrioritize avoidance of hypoglycemia in high-risk individuals\nEfficacy for glucose lowering\nVery high: Dulaglutide (high dose), semaglutide, \ntirzepatide, insulin. \nCombination oral, combination injectable (GLP-1 RA and insulin)\nHigh: GLP-1 RA (not listed above), metformin, pioglitazone, \nSGLT2i, sulfonylurea",
+        "Efficacy for weight loss Metformin or other agent (including combination therapy) that provides adequate \nEFFICACY to achieve and maintain glycemic treatment goals\nPrioritize avoidance of hypoglycemia in high-risk individualsVery high: Semaglutide, tirzepatide\nHigh: Dulaglutide, liraglutide\nIntermediate: GLP-1 RA (not listed above), SGLT2i\nNeutral: Metformin, DPP-4i\nEfficacy for glucose lowering\nVery high: Dulaglutide (high dose), semaglutide, tirzepatide, insulin"
+      ]
+    }
+  },
+  {
+    "query": "A1C target range for type 2 diabetes?",
+    "custom": {
+      "time_sec": 1.517,
+      "score": 3,
+      "score_reason": "The passages provide some relevant information about the A1C goal for diabetes, specifically mentioning that the goal is below 7, but they do not fully elaborate on the target range or its implications.",
+      "answer": "The A1C goal for many people with diabetes is below 7.",
+      "retrieved_chunks": [
+        "\nsugar checks you do each day. \nWhy is it important?\nYou need to know your blood sugar levels over time. You don\u2019t \nwant those numbers to get too high. High levels of blood sugar \ncan hurt your heart, blood vessels, kidneys, feet, and eyes.\nWhat is the A1C goal? \nThe A1C goal for many people with diabetes is below 7. It may \nbe different for you. Ask what your goal should be.\n6\nB for Blood pressure.\nWhat is it?\nBlood pressure is the force of your blood against the wall of \nyour blood vessels. \nW",
+        "nagement of T2D \n(Figure 9.3; S190)\nDiabetes Care 2025;48(Suppl. 1):S181\u2013S206 | doi: https://doi.org/10.2337/dc25-S009; Adapted from Davies et al Diabetes Care 2022;45:2753\u20132786\n5\nADA STANDARDS OF MEDICAL CARE IN DIABETES \u2013 2025\nHealth lifestyle behaviors; Diabetes Self -Management Education and Support (DSMES); Social Determinants of Health (SDOH) \nGoal: Achievement and Maintenance of Weight and Glycemic Goals\nIf A1C is above goal or significant hypoglycemia or hyperglycemia or barriers to care",
+        "reassess \nand modify treatment \nregularly (3 -6 months)Novo Nordisk\u00ae\n2025 ADA: Algorithm for intensifying to injectable therapies in T2D (1/2) \n(Figure 9.4; S192)\n1. Consider insulin as the first injectable if symptoms of hyperglycemia are present, when A1C or blood glucose levels are very high(i.e. AIC (>10% [86 mmol/moll) and blood glucose \u2265300 mg/dL [\u226516.7 mmol/L]), or a diagnosis of type 1 diabetes is a possibility.\n2. When selecting GLP-1 RAs, consider individual preference, A1C lowering, w"
+      ]
+    },
+    "langchain": {
+      "time_sec": 0.82,
+      "score": 4,
+      "score_reason": "The passages provide relevant information about the A1C goal for many people with diabetes, specifically mentioning that it is below 7, but they do not fully elaborate on the target range.",
+      "answer": "The A1C target range for many people with diabetes is below 7.",
+      "retrieved_chunks": [
+        "Why is it important?\nYou need to know your blood sugar levels over time. You don\u2019t \nwant those numbers to get too high. High levels of blood sugar \ncan hurt your heart, blood vessels, kidneys, feet, and eyes.\nWhat is the A1C goal? \nThe A1C goal for many people with diabetes is below 7. It may \nbe different for you. Ask what your goal should be.",
+        "A1C, glycated hemoglobin; GLP-1 RA, glucagon-like peptide 1 receptor agonist; GIP, glucose-dependent insulinotropic peptide; NPH, Neutral Protamine Hagedorn; PPG, postprandial glucose\nDiabetes Care 2025;48(Suppl. 1):S181\u2013S206 | doi: https://doi.org/10.2337/dc25-S009\n7\nADA STANDARDS OF MEDICAL CARE IN DIABETES \u2013 2025\n\u2022 If A1C is above goal and the individual is not already on a GLP-1 RA or dual GIP and GLP-1 RA,",
+        "If A1C is above goal or significant hypoglycemia or hyperglycemia or barriers to care are identified\n\u2022 Refer to DSMES to support self-efficacy in achievement of treatment goals\n\u2022 Consider technology (e.g., diagnostic or personal CGM) to identify therapeutic gaps and tailor therapy\n\u2022 Identify and address SDOH that impact achievement of treatment goals\n+Weight management +Achievement and maintenance of glycemic goals"
+      ]
+    }
+  },
+  {
+    "query": "How to treat hypoglycemia?",
+    "custom": {
+      "time_sec": 1.235,
+      "score": 3,
+      "score_reason": "The passages provide some information related to the management of hypoglycemia, but they do not directly address treatment options or specific interventions for hypoglycemia itself.",
+      "answer": "To treat hypoglycemia, determine the cause; if there is no clear reason, lower the insulin dose by 10-20%.",
+      "retrieved_chunks": [
+        " Section 6, \u201cGlycemic goals and Hypoglycemia\u201d)\n\u2022 Choose evidence-based titration algorithm, e.g., increase 2 units every 3 days to reach FPG goal without hypoglycemia\n\u2022 For hypoglycemia: determine cause; if no clear reason, lower dose by 10-20%\nAssess adequacy of insulin dose at every visit\nConsider clinical signals to evaluate for overbasalization and need to consider adjunctive\ntherapies (e.g., elevated bedtime-morning and/or post-preprandial\ndifferential, hypoglycemia [aware or unaware], high",
+        "\n+Achievement and maintenance of glycemic goals\nMetformin or other agent (including combination therapy) that \nprovides adequate EFFICACY to achieve and maintain glycemic \ntreatment goals\nPrioritize avoidance of hypoglycemia in high-risk individuals\nEfficacy for glucose lowering\nVery high: Dulaglutide (high dose), semaglutide, \ntirzepatide, insulin. \nCombination oral, combination injectable (GLP-1 RA and insulin)\nHigh: GLP-1 RA (not listed above), metformin, pioglitazone, \nSGLT2i, sulfonylurea\nI",
+        "g/h or 0.1 units/kg every 2h s.c. in \u201cmild\u201d \nDKA) or nurse-driven protocol with a variable rate based on glucose values\nDKA\nKeep glucose between 150 and \n200 mg/dL until resolution*\nHHS\nTarget glucose to between 200 \nand 250 mg/dL until resolution\nK+ >5.0 mmol/L\nStart insulin, but do not give K*; check serum K+ \nevery 2 hNovo Nordisk\u00ae\nMedication\n(route of\nadministration)\nGlucose \nlowering\nefficacy1\nHypoglycemia\nrisk\nWeight \neffects2\nCV effects Kidney effects MASH\nEffects\nEffect on MACE Effect on"
+      ]
+    },
+    "langchain": {
+      "time_sec": 0.914,
+      "score": 3,
+      "score_reason": "The passages provide some information related to the management of hypoglycemia but do not directly address treatment options or immediate actions to take during a hypoglycemic episode.",
+      "answer": "To treat hypoglycemia, determine the cause; if there is no clear reason, lower the corresponding insulin dose by 10-20%.",
+      "retrieved_chunks": [
+        "\u2022 For hypoglycemia: determine cause; if no clear reason, lower corresponding dose by 10-20%\nIf A1C is above goal If A1C is above goal\nConsider self-mixed/split insulin plan\nCan adjust NPH and short/rapid-acting insulins separately\nINITIATION: \n\u2022 Total NPH dose = 80% of current NPH dose at the same total\n\u2022 2/3 given before breakfast\n\u2022 1/3 given before dinner\n\u2022 Add 4 units of short/rapid-acting insulin to each injection or 10% of reduced NPH dose\nTITRATION:",
+        "+Achievement and maintenance of glycemic goals\nMetformin or other agent (including combination therapy) that \nprovides adequate EFFICACY to achieve and maintain glycemic \ntreatment goals\nPrioritize avoidance of hypoglycemia in high-risk individuals\nEfficacy for glucose lowering\nVery high: Dulaglutide (high dose), semaglutide, \ntirzepatide, insulin. \nCombination oral, combination injectable (GLP-1 RA and insulin)\nHigh: GLP-1 RA (not listed above), metformin, pioglitazone, \nSGLT2i, sulfonylurea",
+        "Efficacy for weight loss Metformin or other agent (including combination therapy) that provides adequate \nEFFICACY to achieve and maintain glycemic treatment goals\nPrioritize avoidance of hypoglycemia in high-risk individualsVery high: Semaglutide, tirzepatide\nHigh: Dulaglutide, liraglutide\nIntermediate: GLP-1 RA (not listed above), SGLT2i\nNeutral: Metformin, DPP-4i\nEfficacy for glucose lowering\nVery high: Dulaglutide (high dose), semaglutide, tirzepatide, insulin"
+      ]
+    }
+  },
+  {
+    "query": "When to check blood glucose?",
+    "custom": {
+      "time_sec": 1.367,
+      "score": 5,
+      "score_reason": "The passages provide specific guidance on when to check blood glucose, including before meals, after meals, and at bedtime.",
+      "answer": "You should check your blood sugar before each meal, 1 to 2 hours after each meal, and at bedtime.",
+      "retrieved_chunks": [
+        "hree sections. Each section tells you when to \ncheck your blood sugar: before each meal, 1 to 2 hours after \neach meal, and at bedtime. Each time you check your blood \nsugar, write down the date, time, and results. Take this card \nwith you on your health care visits. Show it to your health care \nteam. Talk about your goals and how you are doing.\nEach Check Date Time Result\nMy blood \nsugar before \nmeals:\nUsual goal \n80 to 130* \nMy goal:\n________\nM\ny blood \nsugar 1\u20132 \nhours after \nmeals:\nUsual goa",
+        "2337/dc25-S016 \n20\nADA STANDARDS OF MEDICAL CARE IN DIABETES \u2013 2025\n* Definitions of resolution (use clinical judgment and do not delay discharge or level of care if these are not met):\n         > DKA: Venous pH >7.3 or bicarbonate >18 mmol/L and plasma/capillary ketones <0.6 mmol/L\n         > HHS: Calculated serum osmolality falls to <300 mOsm/ kg and urine output is >0.5 mL/kg/h and glucose is <250 mg/dL\nCheck electrolytes, renal function, venous pH, osmolality, and glucose every 2-4 h until s",
+        "l \nbelow 180*\nMy goal:\n________\nMy blood \nsugar at \nbedtime: \nUsual goal \n110 to 150*\nMy goal:\n________\nTEAR HERE\nTEAR HERE *Your blood sugar goals may be different if you are an older adult (over 65) and \nhave had diabetes a long time. They may be different if you have other health \nproblems like heart disease, or your blood sugar often gets too low.16\nNotes: \nTEAR HERETo learn more: \nNational Institute of Diabetes and Digestive and Kidney Diseases \n1-800-860-8747\nwww.niddk.nih.gov/health-infor"
+      ]
+    },
+    "langchain": {
+      "time_sec": 0.888,
+      "score": 5,
+      "score_reason": "The passages provide specific guidance on when to check blood glucose, including before meals, after meals, and at bedtime.",
+      "answer": "You should check your blood sugar before each meal, 1 to 2 hours after each meal, and at bedtime.",
+      "retrieved_chunks": [
+        "15\nSelf Checks of Blood Sugar\nHow to use this card.\nThis card has three sections. Each section tells you when to \ncheck your blood sugar: before each meal, 1 to 2 hours after \neach meal, and at bedtime. Each time you check your blood \nsugar, write down the date, time, and results. Take this card \nwith you on your health care visits. Show it to your health care \nteam. Talk about your goals and how you are doing.\nEach Check Date Time Result\nMy blood \nsugar before \nmeals:\nUsual goal \n80 to 130*",
+        "sugar before \nmeals:\nUsual goal \n80 to 130* \nMy goal:\n________\nM\ny blood \nsugar 1\u20132 \nhours after \nmeals:\nUsual goal \nbelow 180*\nMy goal:\n________\nMy blood \nsugar at \nbedtime: \nUsual goal \n110 to 150*\nMy goal:\n________\nTEAR HERE\nTEAR HERE *Your blood sugar goals may be different if you are an older adult (over 65) and \nhave had diabetes a long time. They may be different if you have other health \nproblems like heart disease, or your blood sugar often gets too low.",
+        "DKA) or nurse-driven protocol with a variable rate based on glucose values\nDKA\nKeep glucose between 150 and \n200 mg/dL until resolution*\nHHS\nTarget glucose to between 200 \nand 250 mg/dL until resolution\nK+ >5.0 mmol/L\nStart insulin, but do not give K*; check serum K+ \nevery 2 h"
+      ]
+    }
+  },
+  {
+    "query": "Foot care recommendations for diabetics?",
+    "custom": {
+      "time_sec": 1.083,
+      "score": 3,
+      "score_reason": "The passages provide general information about diabetes management and support but do not specifically address foot care recommendations for diabetics.",
+      "answer": "The provided context does not contain specific foot care recommendations for diabetics.",
+      "retrieved_chunks": [
+        "sing recommendations, please refer to manufacturers\u2019 prescribing information.1Tsapas et al. (106). 2Tsapas et al. (241). Adapted from Davies etal. (89).\nDiabetes Care 2025;48(Suppl. 1):S181\u2013S206 | doi: https://doi.org/10.2337/dc25-S009\n22\nADA STANDARDS OF MEDICAL CARE IN DIABETES \u2013 2025\n",
+        " who manages your diabetes day by day. Talk \nto your doctor about how you can best care for your diabetes \nto stay healthy. Some others who can help are:\n\u2022 dentist\n\u2022 diabetes doctor\n\u2022 diabetes educator\n\u2022 dietitian\n\u2022 eye doctor\n\u2022 foot doctor\n\u2022 friends and family \n\u2022 mental health counselor \n\u2022 nurse\n\u2022 nurse practitioner\n\u2022 pharmacist\n\u2022 social worker\n3\nHow to learn more about diabetes. \n\u2022 Take classes to learn more about living with diabetes. To   \nfind a class, check with your health care team, hosp",
+        "ital, or \narea health clinic. You can also search online.\n\u2022 Join a support group \u2014 in-person or online \u2014 to get peer \nsupport with managing your diabetes. \n\u2022 Read about diabetes online. Go to www.niddk.nih.gov/\nhealth-information/diabetes\nTake diabetes seriously.\nYou may have heard people say they have \u201ca touch of diabetes\u201d \nor that their \u201csugar is a little high.\u201d These words suggest that \ndiabetes is not a serious disease. That is not correct. Diabetes \nis serious, but you can learn to manage i"
+      ]
+    },
+    "langchain": {
+      "time_sec": 1.055,
+      "score": 3,
+      "score_reason": "The passages provide general diabetes management information and mention the importance of a foot doctor, but they do not specifically address foot care recommendations for diabetics.",
+      "answer": "The provided context does not contain specific foot care recommendations for diabetics.",
+      "retrieved_chunks": [
+        "2\nYou are the most important member \nof your health care team.\nYou are the one who manages your diabetes day by day. Talk \nto your doctor about how you can best care for your diabetes \nto stay healthy. Some others who can help are:\n\u2022 dentist\n\u2022 diabetes doctor\n\u2022 diabetes educator\n\u2022 dietitian\n\u2022 eye doctor\n\u2022 foot doctor\n\u2022 friends and family \n\u2022 mental health counselor \n\u2022 nurse\n\u2022 nurse practitioner\n\u2022 pharmacist\n\u2022 social worker",
+        "taking a walk, meditating,\nworking on your hobby, or\nlistening to your favorite music.\n\u2022 Ask for help if you feel down. A\nmental health counselor, support\ngroup, member of the clergy,\nfriend, or family member who\nwill listen to your concerns may\nhelp you feel better.\nEat well.\n\u2022Make a diabetes meal plan with help from your health care team.\n\u2022 Choose foods that are lower in calories, saturated fat,\ntrans fat, sugar, and salt.\n\u2022Eat foods with more fiber, such as whole grain cereals,",
+        "i\nENGLISH\n4 Steps to Manage \nYour Diabetes for Life"
+      ]
+    }
+  }
+]
