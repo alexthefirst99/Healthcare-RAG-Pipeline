@@ -4,13 +4,16 @@
 
 ## Data
 
-- **diabetes.pdf** — CDC/NIDDK ["4 Steps to Manage Your Diabetes for Life"](https://www.niddk.nih.gov/-/media/Files/Health-Information/Health-Professionals/Diabetes/health-care-professionals/4StepsToManageDiabetes-English_508.pdf) (CDC National Diabetes Education Program patient booklet)
-- **standards.pdf** — [ADA 2025 Standards of Medical Care in Diabetes, Abridged for Primary Care](https://www.novonordiskmedical.com/content/dam/medical/novonordiskmedical/ta/diabetes/disease-education/resource-documents/abridged-ada-2025-standards-of-medical-care-in-diabetes.pdf) (22 pages)
+- **diabetes.pdf** — CDC/NIDDK ["4 Steps to Manage Your Diabetes for Life"](https://stacks.cdc.gov/view/cdc/55506), the National Diabetes Education Program patient booklet, downloaded directly from CDC's own STACKS repository (20 pages).
+- **standards.pdf** — ["2025 ADA Standards of Medical Care in Diabetes: Updates!"](https://www.wafp.org/assets/files/2025_ADA_Updates_All_Sections_95.pdf), a Pharm Aid clinical bulletin (Washington Academy of Family Physicians) summarizing what changed in the 2025 ADA Standards, with tables covering glycemic targets, DKA/HHS management, and neuropathy screening/treatment (11 pages).
 
-The complete ADA Standards of Care is split across ~20 separate paywalled journal-chapter URLs on
-`diabetesjournals.org` rather than distributed as one PDF, so this uses the abridged primary-care
-version ADA itself points clinicians to for a single-document, single-download version of the same
-content.
+**Note on `standards.pdf`:** this is a third-party primary-care *summary of the 2025 updates*, not
+the full ADA Standards of Care document itself — the complete Standards is split across ~20 separate
+paywalled journal-chapter URLs on `diabetesjournals.org` rather than distributed as one PDF. This
+summary is shorter and denser (tables of what changed, not full clinical narrative), which matters
+for the results below: several queries ask about content this summary simply doesn't restate in
+full (e.g. metformin's side-effect profile isn't itself new in 2025, so an "updates" bulletin has no
+reason to cover it).
 
 ## Setup
 
@@ -46,9 +49,9 @@ custom system, `langchain_community.vectorstores.FAISS` in the LangChain system.
 
 **Chunking:**
 - Custom: fixed 500-character windows, zero overlap, no structural awareness (per the assignment
-  spec) → 123 chunks.
+  spec) → 82 chunks.
 - LangChain: `RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)`, which splits on
-  paragraph/sentence/word boundaries before falling back to a hard character cut → 158 chunks (more,
+  paragraph/sentence/word boundaries before falling back to a hard character cut → 100 chunks (more,
   smaller chunks, since it stops early at a boundary rather than always filling to 500 chars).
 
 **LangChain version note:** the assignment's sample code (`from langchain.chains import
@@ -63,12 +66,12 @@ reflection below.
 
 | # | Test Query | Custom Time | Custom Score | LangChain Time | LangChain Score |
 |---|---|---|---|---|---|
-| 1 | What are metformin side effects? | 2.39s | 1/5 | 1.19s | 1/5 |
-| 2 | A1C target range for type 2 diabetes? | 1.52s | 3/5 | 0.82s | 4/5 |
-| 3 | How to treat hypoglycemia? | 1.24s | 3/5 | 0.91s | 3/5 |
-| 4 | When to check blood glucose? | 1.37s | 5/5 | 0.89s | 5/5 |
-| 5 | Foot care recommendations for diabetics? | 1.08s | 3/5 | 1.05s | 3/5 |
-| **Avg** | | **1.52s** | **3.0/5** | **0.97s** | **3.2/5** |
+| 1 | What are metformin side effects? | 0.97s | 1/5 | 0.76s | 1/5 |
+| 2 | A1C target range for type 2 diabetes? | 1.27s | 3/5 | 1.07s | 3/5 |
+| 3 | How to treat hypoglycemia? | 0.75s | 3/5 | 0.78s | 3/5 |
+| 4 | When to check blood glucose? | 1.04s | 5/5 | 1.05s | 5/5 |
+| 5 | Foot care recommendations for diabetics? | 0.91s | 3/5 | 1.54s | 3/5 |
+| **Avg** | | **0.99s** | **3.0/5** | **1.04s** | **3.0/5** |
 
 Relevance is scored 1-5 by an LLM judge (`gpt-4o-mini`, `src/judge.py`) rating how well the
 retrieved chunks address the query, since no human grader was available — full reasoning per query
@@ -76,33 +79,38 @@ is in `results/eval_results.json`.
 
 ## Part 4: Reflection
 
-**1. Performance.** Nearly tied (3.0/5 custom vs. 3.2/5 LangChain), and the one query where they
-diverged (Q2, A1C target — 3 vs. 4) is the clearest signal: LangChain's `RecursiveCharacterTextSplitter`
-stops at paragraph boundaries, so it retrieved a cleaner, more self-contained passage, while custom's
-fixed 500-char window landed mid-sentence more often. But the two lowest scores (Q1 metformin, Q5 foot
-care — 1/5 and 3/5 on *both* systems identically) aren't a retrieval failure at all: neither source PDF
-actually discusses metformin side effects or a dedicated foot-care protocol in any depth. Since both
-systems use the same embeddings and near-identical top-k cosine search, chunking boundary quality was
-the only real variable — and it produced a small, not large, edge for LangChain here.
+**1. Performance.** The scalar scores are tied exactly, query for query (3.0/5 both, same score on
+all 5 queries) — but reading the actual retrieved chunks and answers shows the tie is misleading. On
+Q5 ("foot care recommendations"), LangChain's chunker retrieved the ADA bulletin's actual neuropathy
+protocol (`"Assess for PAD via foot screening... NEUROPATHY TREATMENT to include: a. Glycemic, lipid,
+BP and weight control b. Meds: gabapentinoids, SNRIs..."`) and the generator produced a real clinical
+answer. Custom's chunker missed that passage entirely, retrieved unrelated CDC-booklet content about
+emotional support and meal planning instead, and correctly refused ("not in context"). The LLM judge
+scored both 3/5 anyway, because its rubric ("topically related but misses the specific answer") can't
+distinguish "found it, generator just phrased it vaguely" from "never found it, generator correctly
+declined." **The retriever difference was real and meaningful; the single relevance number hid it** —
+the same lesson as the Recall@5 caveat from the Treasury RAG project: a scalar metric is only as good
+as what its rubric can distinguish, and it's worth reading a sample of raw outputs before trusting the
+average.
 
-**2. Code.** Custom is 58 lines, LangChain is 49 (both now include real LLM generation, unlike the
-assignment's stub, which is why neither matches the assignment's 48-vs-12 estimate — the "12 lines"
+**2. Code.** Custom is 58 lines, LangChain is 49 (both include real LLM generation, unlike the
+assignment's stub — which is why neither matches the assignment's 48-vs-12 estimate; the 12-line
 version never actually calls a model). The honest gap shows up in *what breaks*, not line count:
-LangChain's convenience layer (`RetrievalQA`, one call) is exactly what got removed in the 1.x rewrite,
-so today the LangChain version requires nearly as much manual composition as the custom one. Use
-custom code for a small, fixed pipeline you fully control and don't want to re-learn on every major
-version bump. Use LangChain when you need its ecosystem (many loader/vectorstore/retriever backends
-swappable behind one interface) and are willing to track its API churn.
+LangChain's old convenience layer (`RetrievalQA`, one call) is exactly what got removed in the 1.x
+rewrite, so today the LangChain version requires nearly as much manual composition as the custom one.
+Use custom code for a small, fixed pipeline you fully control and don't want to re-learn on every
+major version bump. Use LangChain when you need its ecosystem (many loader/vectorstore/retriever
+backends swappable behind one interface) and are willing to track its API churn.
 
-**3. Healthcare / chunking.** Custom's fixed-width chunking visibly cut mid-word: the retrieved chunk
-for "when to check blood glucose" starts `"hree sections..."` — the fixed 500-char boundary landed
-inside "Three sections," silently dropping the first letter with no repair. LangChain's chunk for the
-same query starts cleanly at `"15\nSelf Checks of Blood Sugar"`. Neither, however, preserved the ADA
-standards' DKA/HHS glucose-target table as a structured table — PDF text extraction (`pypdf` and
-`PyPDFLoader` alike) already flattens tables to whitespace-separated text before either chunker sees
-it, so both retrieved it as a wall of run-on numbers (`"Keep glucose between 150 and 200 mg/dL... K+
->5.0 mmol/L Start insulin..."`) that a clinician would find hard to parse — a fixable problem, but
-one that lives upstream of chunking, in PDF extraction.
+**3. Healthcare / chunking.** Custom's fixed-width chunking visibly cut medical terms mid-word: one
+retrieved chunk for the A1C query starts `"erwise healthy with few coexisting chronic conditions can
+have adult glycemic g..."` — the 500-char boundary landed inside "otherwise" and again mid-word at
+"goals," with no repair. LangChain's `RecursiveCharacterTextSplitter` avoids this by stopping at
+sentence/word boundaries. Neither system, however, preserved the ADA bulletin's structured tables
+(glycemic targets, DKA/HHS thresholds) as tables — PDF text extraction (`pypdf` and `PyPDFLoader`
+alike) already flattens them to whitespace-separated text before either chunker sees it, so a precise
+clinical threshold table becomes a run-on wall of numbers in both systems. That's a fixable problem,
+but it lives upstream of chunking, in PDF extraction, not in either RAG implementation.
 
 **4. Understanding.** Writing the custom version forced explicit decisions LangChain's abstraction
 hides by default: how `IndexFlatIP` + `normalize_L2` implements cosine similarity, that "add
@@ -112,14 +120,17 @@ documents" means "embed, then build a flat index" with no incremental-update sto
 was doing real, non-trivial work under the hood, not just syntactic sugar).
 
 **5. Production.** For a hospital deployment I would: (a) chunk on document structure (headings,
-tables) rather than a fixed character count, since the DKA/HHS table finding above shows a naive
-splitter can turn a precise clinical threshold table into unreliable prose; (b) add a refusal/citation
-requirement in the generation prompt with a link back to the source page, since Q1 and Q5 show the
-model correctly says "not in context" when it should — that behavior needs to be enforced and audited,
-not just hoped for; (c) replace the FAISS `IndexFlatIP` with an ANN index (HNSW/IVF) and a real vector
-DB (e.g. pgvector, Pinecone) once the corpus is more than a couple of PDFs, since flat search is O(n)
-per query; (d) pin the LangChain version explicitly, given how much of this assignment's own sample
-code broke on a routine `pip install` six months later.
+tables) rather than a fixed character count, since the flattened-table finding above shows a naive
+splitter can turn a precise clinical threshold table into unreliable prose; (b) never trust a single
+scalar relevance score as a go/no-go signal — the Q5 foot-care case shows two systems can tie on the
+number while one silently fails to surface the needed protocol, so a production eval needs per-query
+spot review, not just an average; (c) add a refusal/citation requirement in the generation prompt with
+a link back to the source page, since Q1 and Q3 show the model correctly says "not in context" when it
+should — that behavior needs to be enforced and audited, not just hoped for; (d) replace the FAISS
+`IndexFlatIP` with an ANN index (HNSW/IVF) and a real vector DB (e.g. pgvector, Pinecone) once the
+corpus is more than a couple of PDFs, since flat search is O(n) per query; (e) pin the LangChain
+version explicitly, given how much of this assignment's own sample code broke on a routine
+`pip install` six months later.
 
 ## Repo layout
 
