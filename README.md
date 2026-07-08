@@ -4,16 +4,12 @@
 
 ## Data
 
-- **diabetes.pdf** — CDC/NIDDK ["4 Steps to Manage Your Diabetes for Life"](https://stacks.cdc.gov/view/cdc/55506), the National Diabetes Education Program patient booklet, downloaded directly from CDC's own STACKS repository (20 pages).
-- **standards.pdf** — ["2025 ADA Standards of Medical Care in Diabetes: Updates!"](https://www.wafp.org/assets/files/2025_ADA_Updates_All_Sections_95.pdf), a Pharm Aid clinical bulletin (Washington Academy of Family Physicians) summarizing what changed in the 2025 ADA Standards, with tables covering glycemic targets, DKA/HHS management, and neuropathy screening/treatment (11 pages).
+- **diabetes.pdf** — CDC "4 Steps to Manage Your Diabetes for Life" (National Diabetes Education
+  Program patient booklet), 20 pages.
+- **standards.pdf** — "2025 ADA Standards of Medical Care in Diabetes: Updates!", 11 pages, with
+  tables covering glycemic targets, DKA/HHS management, and neuropathy screening/treatment.
 
-**Note on `standards.pdf`:** this is a third-party primary-care *summary of the 2025 updates*, not
-the full ADA Standards of Care document itself — the complete Standards is split across ~20 separate
-paywalled journal-chapter URLs on `diabetesjournals.org` rather than distributed as one PDF. This
-summary is shorter and denser (tables of what changed, not full clinical narrative), which matters
-for the results below: several queries ask about content this summary simply doesn't restate in
-full (e.g. metformin's side-effect profile isn't itself new in 2025, so an "updates" bulletin has no
-reason to cover it).
+Both provided as course materials for this assignment.
 
 ## Setup
 
