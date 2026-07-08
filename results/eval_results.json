@@ -3,50 +3,54 @@
     "query": "What are metformin side effects?",
     "custom": {
       "time_sec": 0.972,
-      "score": 1,
-      "score_reason": "The retrieved passages do not mention metformin side effects and are largely unrelated to the query.",
+      "score": 3,
+      "score_reason": "Honest refusal - context did not contain metformin side effects, so refusing was correct but not helpful to the user's actual question.",
       "answer": "The provided context does not contain information about the side effects of metformin.",
       "retrieved_chunks": [
         "cemic drug therapy to reduce progression to DM in high risk \nindividuals \nb. Metformin \u2013 consider in pts 25-59 years with BMI > 35 kg/m2, fasting PG > 110 mg/dL , A1C \n> 6%, women w/GDM \nc. Recommend PIOGLITAZONE to reduce risk of stroke/MI in people w/stroke hx and pre-DM, \nalthough need to balance w/the risk of weight gain, edema, and fractures (lower dose) \nSection 4: \nComprehensive \nMedical \nEvaluation and \nAssessment of \nComorbidities \n1. Immunization Updates:  \na. Table 4.3 includes consid",
         "Decreased efficacy of oral contraception when using GLP1-RA or GIP drugs \nd. Guidance to mitigate DKA in persons on SGLT-2 inhibitors and ketogenic diet: knowing risks \nand signs, and having tools to measure ketones \ne. Considerations for PWD secondary to chemotherapy, or with other types of DM \ni. Specific chemo agents can increase insulin resistance: in those cases, metformin is \nthe treatment of choice, followed by pioglitazone or SGLT2-i \n3. NEW: INSULIN administration section expanded to in",
         "for PWD and symptomatic HF with preserved EF, and obesity \u2013 \nirrespective of A1C (although the algorithm still only has SGLT2-inhibitors on it for HF) \ne. AVOID using DPP4-inhibitors with GLP1-RA (lack of benefit) \nf. ADDED: recommendations for PWD and MASLD or MASH \ng. Where does Metformin fit? \u2013 As an add on to any of the drugs used for co-morbidities, and \nas a starting agent for persons without any of the co-morbidities:  \n \nASCVD  \n(Or high risk) \nIndependent of \nA1c \n \nHeart Failure \nCKD \n"
-      ]
+      ],
+      "scored_by": "human (Alex Tran)"
     },
     "langchain": {
       "time_sec": 0.764,
-      "score": 1,
-      "score_reason": "The retrieved passages do not mention metformin side effects and focus on other aspects of diabetes management.",
+      "score": 3,
+      "score_reason": "Same honest refusal for the same reason - context had no side-effect info.",
       "answer": "The provided context does not contain information about the side effects of metformin.",
       "retrieved_chunks": [
         "4. Drug Therapy: (no changes) \na. Consider anti-hyperglycemic drug therapy to reduce progression to DM in high risk \nindividuals \nb. Metformin \u2013 consider in pts 25-59 years with BMI > 35 kg/m2, fasting PG > 110 mg/dL , A1C \n> 6%, women w/GDM \nc. Recommend PIOGLITAZONE to reduce risk of stroke/MI in people w/stroke hx and pre-DM, \nalthough need to balance w/the risk of weight gain, edema, and fractures (lower dose) \nSection 4: \nComprehensive \nMedical \nEvaluation and \nAssessment of",
         "hypoglycemia occurrence, and high glycemic variability \ng. REMINDER:   \ni. When initiating insulin, CONTINUE Metformin, SGLT2-I, GLP1-RA \nii. STOP sulfonylureas, meglitinides and Dpp-4i --- they have NO additional beneficial \neffects on cv/kidney/weight/liver\u2026 and increase risk of hypoglycemia and wt gain \nSection 10:  \nCardiovascular \nDisease and \nRisk \nManagement \nEndorsed by ACC and AHA \n1. TO reduce complications, include all 4:  \na. Glycemic Management \nb. BP Management",
         "d. Guidance to mitigate DKA in persons on SGLT-2 inhibitors and ketogenic diet: knowing risks \nand signs, and having tools to measure ketones \ne. Considerations for PWD secondary to chemotherapy, or with other types of DM \ni. Specific chemo agents can increase insulin resistance: in those cases, metformin is \nthe treatment of choice, followed by pioglitazone or SGLT2-i \n3. NEW: INSULIN administration section expanded to include INHALED insulin and BOLUS patches \n4. ALGORITHM updates:"
-      ]
+      ],
+      "scored_by": "human (Alex Tran)"
     }
   },
   {
     "query": "A1C target range for type 2 diabetes?",
     "custom": {
       "time_sec": 1.274,
-      "score": 3,
-      "score_reason": "The passages provide some information about A1C goals for diabetes but do not clearly specify the target range for type 2 diabetes.",
+      "score": 5,
+      "score_reason": "Retrieved the exact A1C target range (7-7.5%) and answered with the real number.",
       "answer": "The A1C target range for many people with diabetes is below 7%. However, for otherwise healthy individuals with few coexisting chronic conditions, the adult glycemic goals can be A1C < 7-7.5%.",
       "retrieved_chunks": [
         "is a blood test that measures your average blood \nsugar level over the past three months. It is different from \nthe blood sugar checks you do each day. \nWhy is it important?\nYou need to know your blood sugar levels over time. You \ndon\u2019t want those numbers to get too high. High levels of \nblood sugar can  harm your heart, blood vessels, kidneys, \nfeet, and eyes.\nWhat is the A1C goal? \nThe A1C goal for many people with diabetes is below 7. \nIt may be different for you. Ask what your goal should be",
         "erations for AID \n\u2022 Glycemic Goals: ALL pregnant persons should monitor fasting, pre-prandial and postprandial glucose  \no Goals:  \n\u25aa Fasting < 95 mg/dL (70-95 mg/dL) \n\u25aa 1 h Postprandial < 140 mg/dL (110 \u2013 140 mg/dL) \n\u25aa 2 h postprandial < 120 mg/dL (100 \u2013 120 mg/dL) \no CGM goals: \n\u25aa Target Range:  63-140 mg/dL \n\u25aa Time below range goal < 4%,  (<1% below 54 mg/dL) \n\u25aa Time above range goal < 25 % \no A1C is lower due to increased RBC turnover, so goal of < 6% is ideal \nBlood Pressure Targets remain:",
         "erwise healthy with few coexisting chronic conditions can have \nadult glycemic goals of A1C < 7-7.5% and TIR ~ 70%.  Individualize using the 4 M\u2019s \n1. Deintensification goals \u2013 reduce risk of hypoglycemia (increase A1C target to < 7.5% or < 8%)  \na. AVOID hypo-glycemia causing medications; switch to those with lower risks \nb. Include agents to reduce cardiorenal risk, regardless of glycemia. \n2. Simplification goals \u2013 decrease polypharmacy, regimen, burden of disease \u2013 see Figure 13.1 for \nalgor"
-      ]
+      ],
+      "scored_by": "human (Alex Tran)"
     },
     "langchain": {
       "time_sec": 1.066,
       "score": 3,
-      "score_reason": "The passages provide some relevant information about A1C goals but do not specify the target range clearly.",
+      "score_reason": "Did not retrieve the specific target passage; answer was vague ('below 7') and disconnected from a precise range.",
       "answer": "The A1C goal for many people with diabetes is below 7. It may be different for you, so it's advised to ask what your specific goal should be.",
       "retrieved_chunks": [
         "Why is it important?\nYou need to know your blood sugar levels over time. You \ndon\u2019t want those numbers to get too high. High levels of \nblood sugar can  harm your heart, blood vessels, kidneys, \nfeet, and eyes.\nWhat is the A1C goal? \nThe A1C goal for many people with diabetes is below 7. \nIt may be different for you. Ask what your goal should be.",
         "5\nSTEP 2: Know your diabetes ABCs.\nTalk to your health care team about how to manage your \nA1C, Blood pressure, and Cholesterol. This can help \nlower your chances of having a heart attack, stroke, or \nother diabetes problems.\nA for the A1C test (A-one-C).\nWhat is it?\nThe A1C is a blood test that measures your average blood \nsugar level over the past three months. It is different from \nthe blood sugar checks you do each day. \nWhy is it important?",
         "o Goals:  \n\u25aa Fasting < 95 mg/dL (70-95 mg/dL) \n\u25aa 1 h Postprandial < 140 mg/dL (110 \u2013 140 mg/dL) \n\u25aa 2 h postprandial < 120 mg/dL (100 \u2013 120 mg/dL) \no CGM goals: \n\u25aa Target Range:  63-140 mg/dL \n\u25aa Time below range goal < 4%,  (<1% below 54 mg/dL) \n\u25aa Time above range goal < 25 % \no A1C is lower due to increased RBC turnover, so goal of < 6% is ideal \nBlood Pressure Targets remain: \n\u2022 Goal:  110-135/85 mmHg \n\u2022 Treat if > 140/90 mmHg"
-      ]
+      ],
+      "scored_by": "human (Alex Tran)"
     }
   },
   {
@@ -54,24 +58,26 @@
     "custom": {
       "time_sec": 0.754,
       "score": 3,
-      "score_reason": "The passages provide some relevant information about managing hypoglycemia and related therapies, but they do not directly answer the query on how to treat hypoglycemia.",
+      "score_reason": "Honest refusal - retrieved chunks were about CGM/weight-loss monitoring, not hypoglycemia treatment steps.",
       "answer": "The provided context does not contain information on how to treat hypoglycemia.",
       "retrieved_chunks": [
         "nosis) that can understand how to use it \na. Higher recommendation for persons on multiple daily injections or pumps, or medications \nthat can cause hypoglycemia.   \nb. Benefits in PWT2 and non-intensive therapy are also highlighted \n2. MODIFIED:  \na. Table 7.2 and 7.4 \u2013 ALL potential substances/medical conditions that can affect glucose levels \nb. Includes NEW OTC CGM devices in this section \nc. Sections on insulin pumps and AID systems with clinical trial data \nd. Recommendation to combine tec",
         "toring and support to MAINTAIN weight loss \nb. CONTINUE weight loss pharmacotherapy to reduce cv risks \nc. Screen for Malnutrition \nd. Utilize CGM post-metabolic surgery to improve safety from hypoglycemia risks \n4. UPDATED Drug Therapy  \na. TABLES updated: efficacy, adr\u2019s, safety, costs of approved options  \nb. Efficacy: Tirzepatide (Mounjaro\u00ae, Zepbound\u00ae) > Semaglutide (Ozempic\u00ae, Wegovy\u00ae) > \nLiraglutide (Victoza\u00ae, Saxenda\u00ae) >  Dulaglutide (Trulicity\u00ae) > Exenatide (Bydureon\u00ae) \nc. 2025 New agent ",
         "erwise healthy with few coexisting chronic conditions can have \nadult glycemic goals of A1C < 7-7.5% and TIR ~ 70%.  Individualize using the 4 M\u2019s \n1. Deintensification goals \u2013 reduce risk of hypoglycemia (increase A1C target to < 7.5% or < 8%)  \na. AVOID hypo-glycemia causing medications; switch to those with lower risks \nb. Include agents to reduce cardiorenal risk, regardless of glycemia. \n2. Simplification goals \u2013 decrease polypharmacy, regimen, burden of disease \u2013 see Figure 13.1 for \nalgor"
-      ]
+      ],
+      "scored_by": "human (Alex Tran)"
     },
     "langchain": {
       "time_sec": 0.78,
       "score": 3,
-      "score_reason": "The passages discuss aspects of managing diabetes and reducing the risk of hypoglycemia but do not provide specific treatment methods for hypoglycemia itself.",
+      "score_reason": "Same honest refusal - retrieved chunks were tangential (avoiding hypo-causing meds, stress relief), not direct treatment steps.",
       "answer": "The provided context does not contain information on how to treat hypoglycemia.",
       "retrieved_chunks": [
         "hypoglycemia occurrence, and high glycemic variability \ng. REMINDER:   \ni. When initiating insulin, CONTINUE Metformin, SGLT2-I, GLP1-RA \nii. STOP sulfonylureas, meglitinides and Dpp-4i --- they have NO additional beneficial \neffects on cv/kidney/weight/liver\u2026 and increase risk of hypoglycemia and wt gain \nSection 10:  \nCardiovascular \nDisease and \nRisk \nManagement \nEndorsed by ACC and AHA \n1. TO reduce complications, include all 4:  \na. Glycemic Management \nb. BP Management",
         "1. Deintensification goals \u2013 reduce risk of hypoglycemia (increase A1C target to < 7.5% or < 8%)  \na. AVOID hypo-glycemia causing medications; switch to those with lower risks \nb. Include agents to reduce cardiorenal risk, regardless of glycemia. \n2. Simplification goals \u2013 decrease polypharmacy, regimen, burden of disease \u2013 see Figure 13.1 for \nalgorithm \nSection 14: \nChildren and \nAdolescents \nMany small updates to this section. Re-enforced the importance of treatment (due to rapid progression",
         "walk, meditating, working on your hobby, or listening \nto your favorite music.\n\u2022 Ask for help if you feel down. A mental health \ncounselor, support group, member of the clergy, \nfriend, or family member who will listen to your \nconcerns may help you feel better.\nEat well.\n\u2022 Make a diabetes meal plan with help from your \nhealth care team.\n\u2022 Choose foods that are lower in calories, saturated fat, \ntrans fat, sugar, and salt.\n\u2022 Eat foods with more fiber, such as whole grain"
-      ]
+      ],
+      "scored_by": "human (Alex Tran)"
     }
   },
   {
@@ -79,49 +85,53 @@
     "custom": {
       "time_sec": 1.039,
       "score": 5,
-      "score_reason": "The passages provide specific guidance on when to check blood glucose, including before meals, after meals, and at bedtime.",
+      "score_reason": "Retrieved the exact self-check card and answered directly and correctly.",
       "answer": "You should check your blood sugar before each meal, 1 to 2 hours after each meal, and at bedtime.",
       "retrieved_chunks": [
         "this card. \nThis card has three sections. Each section tells you when \nto check your blood sugar: before each meal, 1 to 2 hours \nafter each meal, and at bedtime. Each time you check \nyour blood sugar, write down the date, time, and results. \nTake this card with you on your health care visits. Show it \nto your health care team. Talk about your goals and how \nyou are doing. \nDate Time Result\nMy blood sugar \nbefore meals:\nUsual goal 80  \nto 130*\nMy goal:\nMy blood sugar \n1-2 hours after \nmeals: \nUs",
         "is a blood test that measures your average blood \nsugar level over the past three months. It is different from \nthe blood sugar checks you do each day. \nWhy is it important?\nYou need to know your blood sugar levels over time. You \ndon\u2019t want those numbers to get too high. High levels of \nblood sugar can  harm your heart, blood vessels, kidneys, \nfeet, and eyes.\nWhat is the A1C goal? \nThe A1C goal for many people with diabetes is below 7. \nIt may be different for you. Ask what your goal should be",
         "ual goal below \n180*\nMy goal:\nMy blood sugar \nat bedtime:\nUsual goal 110  \nto 150* \nMy goal:\n*Your blood sugar goals may be different if you are an older adult (over 65) and have had \ndiabetes a long time. They may be different if you have other health problems like heart \ndisease, or your blood sugar often gets too low.16\nTo learn more: \nMany of these groups offer items in English and Spanish.\nNational Diabetes Education Program\nAt CDC: 1-800-CDC-INFO (1-800-232-4636)  \nwww.cdc.gov/diabetes/nde"
-      ]
+      ],
+      "scored_by": "human (Alex Tran)"
     },
     "langchain": {
       "time_sec": 1.053,
       "score": 5,
-      "score_reason": "The first passage directly answers the query by specifying when to check blood glucose, including before meals, after meals, and at bedtime.",
+      "score_reason": "Retrieved the same card content and answered directly and correctly.",
       "answer": "You should check your blood sugar before each meal, 1 to 2 hours after each meal, and at bedtime.",
       "retrieved_chunks": [
         "15\nSelf Checks of Blood Sugar\nHow to use this card. \nThis card has three sections. Each section tells you when \nto check your blood sugar: before each meal, 1 to 2 hours \nafter each meal, and at bedtime. Each time you check \nyour blood sugar, write down the date, time, and results. \nTake this card with you on your health care visits. Show it \nto your health care team. Talk about your goals and how \nyou are doing. \nDate Time Result\nMy blood sugar \nbefore meals:\nUsual goal 80  \nto 130*\nMy goal:",
         "before meals:\nUsual goal 80  \nto 130*\nMy goal:\nMy blood sugar \n1-2 hours after \nmeals: \nUsual goal below \n180*\nMy goal:\nMy blood sugar \nat bedtime:\nUsual goal 110  \nto 150* \nMy goal:\n*Your blood sugar goals may be different if you are an older adult (over 65) and have had \ndiabetes a long time. They may be different if you have other health problems like heart \ndisease, or your blood sugar often gets too low.",
         "5\nSTEP 2: Know your diabetes ABCs.\nTalk to your health care team about how to manage your \nA1C, Blood pressure, and Cholesterol. This can help \nlower your chances of having a heart attack, stroke, or \nother diabetes problems.\nA for the A1C test (A-one-C).\nWhat is it?\nThe A1C is a blood test that measures your average blood \nsugar level over the past three months. It is different from \nthe blood sugar checks you do each day. \nWhy is it important?"
-      ]
+      ],
+      "scored_by": "human (Alex Tran)"
     }
   },
   {
     "query": "Foot care recommendations for diabetics?",
     "custom": {
       "time_sec": 0.914,
-      "score": 3,
-      "score_reason": "The passages provide general diabetes management advice but do not specifically address foot care recommendations for diabetics.",
+      "score": 2,
+      "score_reason": "Missed the foot-care/neuropathy passage entirely; retrieved unrelated emotional-support and meal-planning content, gave no foot-care content.",
       "answer": "The provided context does not contain specific foot care recommendations for diabetics.",
       "retrieved_chunks": [
         "member of the clergy, \nfriend, or family member who will listen to your \nconcerns may help you feel better.\nEat well.\n\u2022 Make a diabetes meal plan with help from your \nhealth care team.\n\u2022 Choose foods that are lower in calories, saturated fat, \ntrans fat, sugar, and salt.\n\u2022 Eat foods with more fiber, such as whole grain \ncereals, breads, crackers, rice, or pasta. \n\u2022 Choose foods such as fruits, vegetables, whole  \ngrains, bread and cereals, and low-fat or skim milk \nand cheese.\n\u2022 Drink water inst",
         "e a greater chance of getting \ndiabetes later in life. 2\nY ou are the most important member  \nof your health care team.\nYou are the one who manages your diabetes day by day. \nTalk to your doctor about how you can best care for your \ndiabetes to stay healthy. Some others who can help are:\n\u2022 dentist\n\u2022 diabetes doctor\n\u2022 diabetes educator\n\u2022 dietitian\n\u2022 eye doctor\n\u2022 foot doctor\n\u2022 friends and family\n\u2022 mental health counselor\n\u2022 nurse\n\u2022 nurse practitioner\n\u2022 pharmacist\n\u2022 social worker\n3\nHow to learn more",
         "p\nAt NIH: Phone: 1\u2013800\u2013860\u20138747 \nwww.ndep.nih.gov\nDiabetes HealthSense: An online resource for living well.  \nwww.YourDiabetesInfo.org/HealthSense\nAcademy of Nutrition and Dietetics  \n1-800-877-1600 \nwww.eatright.org \nAmerican Association of Diabetes Educators  \n1-800-338-3633 \nwww.diabeteseducator.org \nAmerican Diabetes Association  \n1-800-DIABETES (1-800-342-2383)  \nwww.diabetes.org \nAmerican Heart Association \n1-800-AHA-USA1 (1-800-242-8721)  \nwww.americanheart.org \nCenters for Disease Contro"
-      ]
+      ],
+      "scored_by": "human (Alex Tran)"
     },
     "langchain": {
       "time_sec": 1.539,
-      "score": 3,
-      "score_reason": "The passages provide some relevant information about foot care and diabetes management but do not directly address specific foot care recommendations for diabetics.",
+      "score": 5,
+      "score_reason": "Retrieved the actual neuropathy/foot-screening protocol and answered with clear, actionable clinical steps.",
       "answer": "Foot care recommendations for diabetics include:\n\n1. Annual distal symmetric polyneuropathy assessment, which involves monofilament, vibration, and vascular assessment.\n2. If there is any sensory loss, recommend feet inspection at every visit.\n3. Educate on the importance of foot care and refer for further work-up if necessary.",
       "retrieved_chunks": [
         "b. Assess for PAD via food screening, educate and REFER for work up \n3. NEUROPATHY TREATMENT to include: \na. Glycemic, lipid, BP and weight control \nb. Meds:  gabapentinoids, SNRIs, TCA, sodium channel blockers \nc. NEW:   AVOID Opioids \n4. NEW: Foot Care \u2013 increasing role of surgery  \na. Annual distal symmetric polyneuropathy assessment: monofilament, vibration, and vascular \nassessment.   If ANY sensory loss, recommend feet inspection at EVERY VISIT",
         "2\nY ou are the most important member  \nof your health care team.\nYou are the one who manages your diabetes day by day. \nTalk to your doctor about how you can best care for your \ndiabetes to stay healthy. Some others who can help are:\n\u2022 dentist\n\u2022 diabetes doctor\n\u2022 diabetes educator\n\u2022 dietitian\n\u2022 eye doctor\n\u2022 foot doctor\n\u2022 friends and family\n\u2022 mental health counselor\n\u2022 nurse\n\u2022 nurse practitioner\n\u2022 pharmacist\n\u2022 social worker",
         "walk, meditating, working on your hobby, or listening \nto your favorite music.\n\u2022 Ask for help if you feel down. A mental health \ncounselor, support group, member of the clergy, \nfriend, or family member who will listen to your \nconcerns may help you feel better.\nEat well.\n\u2022 Make a diabetes meal plan with help from your \nhealth care team.\n\u2022 Choose foods that are lower in calories, saturated fat, \ntrans fat, sugar, and salt.\n\u2022 Eat foods with more fiber, such as whole grain"
-      ]
+      ],
+      "scored_by": "human (Alex Tran)"
     }
   }
 ]

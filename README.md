@@ -62,32 +62,37 @@ reflection below.
 
 | # | Test Query | Custom Time | Custom Score | LangChain Time | LangChain Score |
 |---|---|---|---|---|---|
-| 1 | What are metformin side effects? | 0.97s | 1/5 | 0.76s | 1/5 |
-| 2 | A1C target range for type 2 diabetes? | 1.27s | 3/5 | 1.07s | 3/5 |
+| 1 | What are metformin side effects? | 0.97s | 3/5 | 0.76s | 3/5 |
+| 2 | A1C target range for type 2 diabetes? | 1.27s | 5/5 | 1.07s | 3/5 |
 | 3 | How to treat hypoglycemia? | 0.75s | 3/5 | 0.78s | 3/5 |
 | 4 | When to check blood glucose? | 1.04s | 5/5 | 1.05s | 5/5 |
-| 5 | Foot care recommendations for diabetics? | 0.91s | 3/5 | 1.54s | 3/5 |
-| **Avg** | | **0.99s** | **3.0/5** | **1.04s** | **3.0/5** |
+| 5 | Foot care recommendations for diabetics? | 0.91s | 2/5 | 1.54s | 5/5 |
+| **Avg** | | **0.99s** | **3.6/5** | **1.04s** | **3.8/5** |
 
-Relevance is scored 1-5 by an LLM judge (`gpt-4o-mini`, `src/judge.py`) rating how well the
-retrieved chunks address the query, since no human grader was available — full reasoning per query
-is in `results/eval_results.json`.
+Relevance is scored 1-5 by hand (Alex Tran), reading the actual retrieved chunks and the generated
+answer for each of the 10 runs, using this rule: 3 for an honest "not in context" refusal when the
+answer genuinely wasn't retrieved (safe but unhelpful), 5 for a correct and specific answer, lower
+for answers that were wrong or misleadingly vague. Full reasoning per query is in
+`results/eval_results.json`. (An earlier pass used an LLM-as-judge for this scoring — see git history
+— but that was replaced with manual scoring since the assignment calls for evaluating retrieval
+relevance yourself, not delegating it to another model.)
 
 ## Part 4: Reflection
 
-**1. Performance.** The scalar scores are tied exactly, query for query (3.0/5 both, same score on
-all 5 queries) — but reading the actual retrieved chunks and answers shows the tie is misleading. On
-Q5 ("foot care recommendations"), LangChain's chunker retrieved the ADA bulletin's actual neuropathy
-protocol (`"Assess for PAD via foot screening... NEUROPATHY TREATMENT to include: a. Glycemic, lipid,
-BP and weight control b. Meds: gabapentinoids, SNRIs..."`) and the generator produced a real clinical
-answer. Custom's chunker missed that passage entirely, retrieved unrelated CDC-booklet content about
-emotional support and meal planning instead, and correctly refused ("not in context"). The LLM judge
-scored both 3/5 anyway, because its rubric ("topically related but misses the specific answer") can't
-distinguish "found it, generator just phrased it vaguely" from "never found it, generator correctly
-declined." **The retriever difference was real and meaningful; the single relevance number hid it** —
-the same lesson as the Recall@5 caveat from the Treasury RAG project: a scalar metric is only as good
-as what its rubric can distinguish, and it's worth reading a sample of raw outputs before trusting the
-average.
+**1. Performance.** LangChain edged ahead overall, 3.8 vs. 3.6 — but the average hides the more
+interesting result: the two systems don't have a "better" and "worse" version, they have different
+strengths that showed up on different questions. On the A1C question, Custom found the exact target
+range (7-7.5%) while LangChain gave a vague, disconnected answer ("below 7," no specific range) —
+Custom wins clearly, 5 vs. 3. On the foot-care question, the opposite happened: LangChain's chunker
+retrieved the ADA bulletin's actual neuropathy protocol (`"Assess for PAD via foot screening...
+NEUROPATHY TREATMENT to include: a. Glycemic, lipid, BP and weight control b. Meds: gabapentinoids,
+SNRIs..."`) and answered correctly, while Custom's chunker missed that passage entirely, retrieved
+unrelated CDC-booklet content about emotional support and meal planning, and correctly refused —
+LangChain wins clearly, 5 vs. 2. LangChain's higher average is only because that second gap (3
+points) was larger than the first gap (2 points), not because it's the stronger system overall.
+**The lesson: an average hides which system is actually better at what — two systems can trade wins
+on different questions and still land close together in the final number, telling you almost nothing
+about where each one's real strengths are.**
 
 **2. Code.** Custom is 58 lines, LangChain is 49 (both include real LLM generation, unlike the
 assignment's stub — which is why neither matches the assignment's 48-vs-12 estimate; the 12-line
@@ -117,10 +122,10 @@ was doing real, non-trivial work under the hood, not just syntactic sugar).
 
 **5. Production.** For a hospital deployment I would: (a) chunk on document structure (headings,
 tables) rather than a fixed character count, since the flattened-table finding above shows a naive
-splitter can turn a precise clinical threshold table into unreliable prose; (b) never trust a single
-scalar relevance score as a go/no-go signal — the Q5 foot-care case shows two systems can tie on the
-number while one silently fails to surface the needed protocol, so a production eval needs per-query
-spot review, not just an average; (c) add a refusal/citation requirement in the generation prompt with
+splitter can turn a precise clinical threshold table into unreliable prose; (b) never trust one
+overall average by itself — Custom and LangChain each won big on a different question (Q2 vs. Q5)
+and roughly cancelled out in the average, so a production eval needs to track performance per
+question type, not just one combined number; (c) add a refusal/citation requirement in the generation prompt with
 a link back to the source page, since Q1 and Q3 show the model correctly says "not in context" when it
 should — that behavior needs to be enforced and audited, not just hoped for; (d) replace the FAISS
 `IndexFlatIP` with an ANN index (HNSW/IVF) and a real vector DB (e.g. pgvector, Pinecone) once the
