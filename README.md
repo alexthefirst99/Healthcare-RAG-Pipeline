@@ -70,12 +70,21 @@ reflection below.
 | **Avg** | | **0.99s** | **3.6/5** | **1.04s** | **3.8/5** |
 
 Relevance is scored 1-5 by hand (Alex Tran), reading the actual retrieved chunks and the generated
-answer for each of the 10 runs, using this rule: 3 for an honest "not in context" refusal when the
-answer genuinely wasn't retrieved (safe but unhelpful), 5 for a correct and specific answer, lower
-for answers that were wrong or misleadingly vague. Full reasoning per query is in
-`results/eval_results.json`. (An earlier pass used an LLM-as-judge for this scoring — see git history
-— but that was replaced with manual scoring since the assignment calls for evaluating retrieval
-relevance yourself, not delegating it to another model.)
+answer for each of the 10 runs:
+
+- **Q1:** Both systems failed to retrieve side effects. The refusal is honest, so not terrible, but
+  it does not answer the user's question. 3/5 for both.
+- **Q2:** Custom retrieved the correct A1C target range and answered with the number. 5/5. LangChain
+  did not retrieve the real target passage, and the answer was vague. 3/5.
+- **Q3:** Both failed to retrieve actual hypoglycemia treatment steps. The refusal is safe, but not
+  useful. 3/5 for both.
+- **Q4:** Both retrieved the exact correct card and answered directly. 5/5 for both.
+- **Q5:** Custom failed retrieval and gave no foot-care content, while LangChain retrieved and
+  answered the actual protocol. Custom gets 2/5, LangChain gets 5/5.
+
+(An earlier pass used an LLM-as-judge for this scoring — see git history — but that was replaced with
+manual scoring since the assignment calls for evaluating retrieval relevance yourself, not delegating
+it to another model.)
 
 ## Part 4: Reflection
 
